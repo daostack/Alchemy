@@ -25,6 +25,7 @@ import { IProfileState } from "@store/profiles/profilesReducer";
 import { combineLatest, of } from "rxjs";
 import Loading from "components/Shared/Loading";
 import * as css from "./Account.scss";
+import {VotingHistory} from "./VotingHistory";
 
 type IExternalProps = RouteComponentProps<any>;
 
@@ -291,6 +292,10 @@ class AccountProfilePage extends React.Component<IProps, IState> {
                         <span>{accountAddress.substr(0, 20)}...</span>
                         <CopyToClipboard value={accountAddress} color={IconColor.Black}/>
                       </div>
+                    </div>
+                    <div>
+                      <strong>Voting History</strong><br/>
+                      <span><VotingHistory dao={dao.dao} profileAddress={this.props.accountAddress} ></VotingHistory></span>
                     </div>
                   </div>
                 </form>
